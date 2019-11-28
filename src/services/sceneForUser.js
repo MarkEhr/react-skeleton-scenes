@@ -1,5 +1,4 @@
 import Admin from "../scenes/Admin/Admin";
-import Customer from "../scenes/Customer/Customer";
 
 export default (user)=>{
 
@@ -8,14 +7,12 @@ export default (user)=>{
 
     //Basic user
     if(!user.role)
-        return Customer;
+        return null;//Normal user screen
 
     switch (user.role.name) {
         case 'SUPER_ADMIN':
             return Admin;
-        case 'CUSTOMER':
-            return Customer;
         default:
-            return null;
+            return null;//Normal user screen
     }
 }

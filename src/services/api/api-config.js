@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const config ={
-    host:'https://itakat-back.tide.company',
+    host:'http://localhost:8000',
     commonPath:'api',
     credentials:'include',
     saveTokenToLocalStorage: true,
@@ -14,7 +14,7 @@ const config ={
 };
 
 if(process.env.NODE_ENV === 'development')
-    config.host='https://itakat-back.tide.company';
+    config.host='http://localhost:8000';
 
 export default config;
 
