@@ -19,10 +19,13 @@ function App() {
 
     const loggedIn=useSelector(({api})=>api.loggedIn===LOGIN_STATE.LOGGED_IN);
 
-    useEffect(()=>api.me.get({loadingId:'Initializing.me'}) ,[]);
-
     const loading=useSelector(({loadingIds})=>!!loadingIds['Initializing.me']);
     const me=useSelector(({api})=>api.me);
+
+    useEffect(()=>{
+        if(!me && !loading && loggedIn)
+            api.me.get({loadingId:'Initializing.me'}).catch(()=>api.logout());
+    },[me, loading, loggedIn]);
 
     const securityManager=useMemo(()=> me? new SecurityManager(me) : null,[me]);
 
