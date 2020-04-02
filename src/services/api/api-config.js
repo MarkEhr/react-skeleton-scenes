@@ -10,6 +10,19 @@ const config ={
     getMetaDataFromResponse:(r)=>r.meta,
     endpoints:[
         'me',
+        {
+            name: 'error',
+            preventDefaultMethods: true,
+            customMethods: {
+                send: function( error, stack, user, ...additionalInfo ){
+                    let params = { stack,
+                        error: error && error.message,
+                        user: user && {id: user.id, username: user.username},
+                        ...additionalInfo };
+                    return this.apiCall( '/frontend_error', "error_sent", params, { method: "POST", queueable: true, useCommonPath: false }  )
+                }
+            }
+        },
     ],
 };
 

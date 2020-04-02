@@ -12,6 +12,7 @@ import Splash from "./components/Splash";
 import SecurityManager from "./services/SecurityManager";
 import getAppRoutes from "./services/routes/appRoutes";
 import notLoggedRoutes from "./services/routes/notLoggedRoutes";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 const api = new Api({...apiConfig, reduxStore: store});
 
@@ -38,19 +39,21 @@ function App() {
     return (
         <div className="App">
             <ApiContext.Provider value={api} >
-                <Router>
-                    {splash ?
-                        <Splash/>
-                        :
-                        <Switch>
-                            {routes.map(route =>
-                                <Route key={route.path} path={route.path} component={route.component}
-                                       exact={route.exact !== false}/>
-                            )}
-                            <Redirect from='/' to={routes[0].path}/>
-                        </Switch>
-                    }
-                </Router>
+                <ErrorBoundary>
+                    <Router>
+                        {splash ?
+                            <Splash/>
+                            :
+                            <Switch>
+                                {routes.map(route =>
+                                    <Route key={route.path} path={route.path} component={route.component}
+                                           exact={route.exact !== false}/>
+                                )}
+                                <Redirect from='/' to={routes[0].path}/>
+                            </Switch>
+                        }
+                    </Router>
+                </ErrorBoundary>
             </ApiContext.Provider>
         </div>
     );
