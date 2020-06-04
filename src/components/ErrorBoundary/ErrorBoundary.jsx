@@ -5,7 +5,6 @@ import {ApiContext} from "../../services/api/api-config";
 import {connect} from "react-redux";
 import crashImg from './assets/monalisa-7.jpg';
 import './ErrorBoundary.scss';
-import Button from "../Button/Button";
 
 
 class ErrorBoundary extends React.Component {
@@ -65,7 +64,7 @@ class ErrorBoundary extends React.Component {
                     <h1 className='title'>¡Oh no! Parece que hubo un error.</h1>
                     <p className='message'>Algo salió mal en la aplicación, pero los detalles del error ya fueron enviados a soporte técnico</p>
                     <div className='but-container'>
-                        <a href='/'><Button className='button'>Regresar al inicio</Button></a>
+                        <a href='/'><button className='button'>Regresar al inicio</button></a>
                     </div>
                 </div>
             </div>
