@@ -13,6 +13,8 @@ import SecurityManager, {SecurityContext} from "./services/SecurityManager";
 import getAppRoutes from "./services/routes/appRoutes";
 import notLoggedRoutes from "./services/routes/notLoggedRoutes";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
+import TideToaster from "./components/TideToaster/TideToaster";
+import {notifierRef} from "./services/notifier";
 
 const api = new Api({...apiConfig, reduxStore: store});
 
@@ -38,6 +40,7 @@ function App() {
 
     return (
         <div className="App">
+            <TideToaster ref={notifierRef}/>
             <SecurityContext.Provider value={securityManager}>
                 <ApiContext.Provider value={api} >
                     <ErrorBoundary>

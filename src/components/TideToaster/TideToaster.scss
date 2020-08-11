@@ -1,0 +1,21 @@
+.TideToaster{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 100%;
+  .message-bar{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    &.error{
+      background: linear-gradient(45deg, #dc2f2f, #76207c);
+    }
+    &.info{
+      background: linear-gradient(45deg, #2f60dc, #2e207c);
+    }
+    &.success {
+      background: linear-gradient(45deg, #3cb305 30%, #016b01);
+    }
+  }
+}
