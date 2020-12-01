@@ -1,10 +1,10 @@
-import { combineReducers } from 'redux';
-import {reducer as api, loadingReducer as loading, loadingByIdReducer as loadingIds} from 'tide-api';
+import { combineReducers } from 'redux'
+import { reducer as api, loadingReducer as loading, loadingByIdReducer as loadingIds } from 'tide-api'
 
 const rootReducer = combineReducers({
-    api,
-    loading,
-    loadingIds
-});
+  api,
+  loading,
+  loadingIds
+})
 
-export default rootReducer;
+export default rootReducer
