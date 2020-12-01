@@ -1,6 +1,6 @@
 import React from 'react'
 import semver from 'semver-lite'
-import { version } from '../../pckg'
+import { version } from '../../../package.json'
 
 const config = {
   host: 'http://localhost:8000',

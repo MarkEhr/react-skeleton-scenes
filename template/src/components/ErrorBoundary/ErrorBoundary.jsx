@@ -1,6 +1,6 @@
 import React from 'react'
 import DeviceDetector from 'device-detector-js'
-import { version } from '../../pckg'
+import { version } from '../../../package.json'
 import { ApiContext } from '../../services/api/api-config'
 import { connect } from 'react-redux'
 import crashImg from './assets/monalisa-7.jpg'
