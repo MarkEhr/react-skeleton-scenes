@@ -1,11 +1,30 @@
 {
-  "name": "app-name",
+  "name": "cra-template-tide-scenes",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
+  "description": "Work with the TIDE stack",
+  "main": "template.json",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "tide",
+    "tide-api",
+    "redux"
+  ],
+  "bugs": {
+    "url": "https://github.com/MarkEhr/react-skeleton-scenes/issues"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^4.9.0",
     "classnames": "^2.2.6",
     "cra-append-sw": "^2.7.0",
     "device-detector-js": "^2.2.5",
+    "eslint": "^7.14.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-config-standard-jsx": "^10.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.21.5",
     "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
@@ -16,27 +35,11 @@
     "redux": "^4.0.5",
     "semver-lite": "^0.0.6",
     "tide-api": "^1.5.2",
+    "typescript": "^4.1.2",
     "use-callback-creator": "^1.1.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build && cra-append-sw ./src/custom-sw.js",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "files": [
+    "template",
+    "template.json"
+  ]
 }
