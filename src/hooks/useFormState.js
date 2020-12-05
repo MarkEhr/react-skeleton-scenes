@@ -1,7 +1,7 @@
 import {useState} from "react";
 import useCallbackCreator from "use-callback-creator";
 
-export default ( initialState={} )=>{
+const useFormState = ( initialState={} )=>{
 
     const [form, setForm] = useState(initialState);
 
@@ -19,3 +19,5 @@ export default ( initialState={} )=>{
     }
 
 };
+
+export default useFormState;
