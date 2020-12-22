@@ -15,7 +15,7 @@ const config ={
             name: 'error',
             preventDefaultMethods: true,
             customMethods: {
-                send: function( error, stack, user, ...additionalInfo ){
+                send: function( error, stack, user, additionalInfo ){
                     let params = { stack,
                         error: error && error.message,
                         user: user && {id: user.id, username: user.username},
