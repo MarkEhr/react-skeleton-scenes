@@ -25,6 +25,15 @@ const config ={
             }
         },
     ],
+    login:{
+        createBody: ( username, password )=>{
+            let credentials = new FormData();
+            credentials.append("_username", username );
+            credentials.append("_password", password);
+            credentials.append("client_data", window?.navigator?.userAgent||'no-data');
+            return credentials;
+        },
+    },
 };
 
 
