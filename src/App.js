@@ -1,5 +1,5 @@
 import React, {useEffect, useMemo} from 'react';
-import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Route, Navigate, Routes} from "react-router-dom";
 import Api from 'tide-api';
 import apiConfig from './services/api/api-config'
 import {ApiContext} from "./services/api/api-config";
@@ -48,13 +48,12 @@ function App() {
                             {splash ?
                                 <Splash/>
                                 :
-                                <Switch>
-                                    {routes.map(route =>
-                                        <Route key={route.path} path={route.path} component={route.component}
-                                               exact={route.exact !== false}/>
+                                <Routes>
+                                    {routes.map(({path, exact, Component}) =>
+                                        <Route key={path} path={path} element={<Component />} exact={ exact !== false}/>
                                     )}
-                                    <Redirect from='/' to={routes[0].path}/>
-                                </Switch>
+                                    <Route path="*" element={<Navigate replace to={routes[0].path} />} />
+                                </Routes>
                             }
                         </Router>
                     </ErrorBoundary>

@@ -9,7 +9,7 @@ const getAppRoutes =(securityManager)=>{
     let routes = [];
 
     if(securityManager.canSeeEntity())
-        routes.push({path:paths.entity, component: FrontDesk});
+        routes.push({path:paths.entity, Component: FrontDesk});
 
     return routes;
 };

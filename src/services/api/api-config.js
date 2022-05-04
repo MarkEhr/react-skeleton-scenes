@@ -1,6 +1,6 @@
 import React from 'react';
 import semver from 'semver-lite';
-import {version} from '../../pckg';
+import pckg from '../../pckg';
 
 const config ={
     host:'http://localhost:8000',
@@ -44,7 +44,7 @@ function handleResponse(response, headers){
         let force = !!server && server[server.length - 1] === 'f';
         if (force) server = server.slice(0, server.length - 1);
 
-        if (semver.validate(version) && semver.validate(version) && semver.gt(server, version)) {
+        if (semver.validate(pckg.version) && semver.validate(pckg.version) && semver.gt(server, pckg.version)) {
             if(!this.newerVersion)
                 console.log("Newer version detected " + server);
             if (!this.newerVersion && window.swRegistration) {
@@ -55,7 +55,7 @@ function handleResponse(response, headers){
                             window.navigator.serviceWorker.controller.postMessage('force_refresh');
                     });
             }
-            this.newerVersion = version;
+            this.newerVersion = pckg.version;
             if (force && !window.swRegistration)
                 window.location.reload();
         }

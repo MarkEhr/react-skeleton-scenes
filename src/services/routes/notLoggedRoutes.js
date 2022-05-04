@@ -7,8 +7,8 @@ export const paths={
 };
 
 const notLoggedRoutes=[
-    {path:paths.login, component: Login},
-    {path:paths.register, component: Register},
+    {path:paths.login, Component: Login},
+    {path:paths.register, Component: Register},
 ];
 
 export default notLoggedRoutes;
